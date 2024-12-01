@@ -169,7 +169,7 @@ nav ul li a{
     -o-perspective: 2000px;
     perspective: 2000px;
 }
-.main {
+.main{
     width: 420px;
     height: 560px;
     color: #92684F;
@@ -219,11 +219,15 @@ nav ul li a{
     -o-transform:translate3d(0,0,25px);
     transform:translate3d(0,0,25px);
 }
+.book-color{
+  /* background-color: #fff; */
+}
 .book-cover{
     width:420px; height:560px;
     overflow:hidden;
     position:absolute; top:0; bottom:0;
-    background:#29303A url(http://www.bluesdream.com/case/css3/3d-book-showcase/images/img.jpg) 0 200px no-repeat;
+    background:#29303A;
+    /* background-image: url(../img/bookCover_img.jpg) 0 200px no-repeat; */
     -webkit-transform-style:preserve-3d;
     -moz-transform-style:preserve-3d;
     -ms-transform-style:preserve-3d;
@@ -236,6 +240,20 @@ nav ul li a{
     -o-backface-visibility:hidden;
     backface-visibility:hidden;
 }
+.book-cover .photoframe{
+    margin-top: 90px;
+    width: 100%;
+    height: 260px;
+    border-top: 1px solid #92684F;
+    border-bottom: 1px solid #92684F;
+    overflow: hidden;
+}
+.book-cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 .book-cover-back{
     width:420px; height:560px;
     position:absolute; top:0; bottom:0;

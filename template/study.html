@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Nooklit - 日記頁</title>
+    <title>Nooklit - 書房</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kablammo&family=Karla+Tamil+Inclined:wght@400;700&family=M+PLUS+Rounded+1c&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/test.css" />
+    <link rel="stylesheet" href="../css/study.css" />
   </head>
   <body>
     
@@ -41,7 +41,7 @@
             <li><a href="#">書籍總覽</a></li>
             <li><a href="#">相片集</a></li>
             <li><a href="#">使用教學</a></li>
-            <li><a href="#">書店</a></li>
+            <li><a href="../template/shop.html">書店</a></li>
           </ul>
         </div>
           <h1 class="demo-title"></h1>
@@ -49,11 +49,14 @@
         <div id="book" class="view-cover">
           <div class="main">
             <div class="book-font" id="open-book">
-              <div class="book-cover">
-                <h1 class="title">Vincent 的日記</h1>
+              <div class="book-cover  book-color  ">
+                <h1 class="title">Vincent的日記</h1>
+                <div class="photoframe">
+                <img src="../img/pegiun.jpeg" alt="">
+              </div>
                 <div class="publisher">Oxford University Press, USA</div>
               </div>
-              <div class="book-cover-back"></div>
+              <div class="book-cover-back  book-color"></div> <!--書封面內頁 -->
             </div>
             <div class="book-page">
               <div id="page-1" class="page">
@@ -65,14 +68,14 @@
               </div>
               <div class="page-number">- 1 -</div>
             </div>
-            <div class="book-back">
+            <div class="book-back book-color">
               <div class="description">
                 <p>"Ideal for the college survey course: judicious introduction plus just the right admixture of explanatory notes (vital for American students' comprehension of dialect words), up-to-date bibliography, and several other brief, indispensable supports to well-informed reading."</p>
                 <p class="txt-right">--Katherine Linehan, Oberlin College</p>
               </div>
               <div class="isbn"><img src="http://www.bluesdream.com/case/css3/3d-book-showcase/images/isbn.png"></div>
             </div>
-            <div class="book-bone">
+            <div class="book-bone book-color">
               <h2>Emily Bronte　Wuthering Heights</h2>
             </div>
             <div class="book-top"></div>
@@ -86,34 +89,15 @@
             <dt>Console</dt>
             <dd id="view-cover" class="cur">View Cover</dd>
             <dd id="view-back">View Back</dd>
+            <dd id="view-rotate">360° Showcase</dd>
           </dl>
         </div>
       </div>
     </div>
     <script src="../js/jquery-3.7.1 copy.js"></script>
     <script src="../js/index.js"></script>
-    <script>
-      //字體大小
-      let selectedFontSize =localStorage.getItem('selectedFontSize');
-      if(selectedFontSize){
-        let fontSizetarget={
-          small:'54.5%',
-          middle:'62.5%',
-          large:'70.5%'
-        };
-        document.documentElement.style.fontSize=fontSizetarget[selectedFontSize] || '62.5%';
-      }
+    <script src="../js/study.js"></script>
 
-      let selectedFontStyle =localStorage.getItem('selectedFontStyle');
-      if(selectedFontStyle){
-        let FontStyletarget={
-          Hachi :"Hachi Maru Pop", 
-          Kablammo:"Kablammo",
-          lato:"Lato"
-        }
-        document.body.style.fontFamily=FontStyletarget[selectedFontStyle] || 'sans-serif'
-      }
 
-    </script>
   </body>
 </html>
