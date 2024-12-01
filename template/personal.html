@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nooklit - 日記頁</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../css/personal.css" />
+  </head>
+  <body>
+    
+    <div class="wrapper">
+      <!-- <img src="../img/roll.svg" alt="" class="roll"> -->
+      <nav class="top_nav">
+        <a href="../template/index.html" class="logo"><img src="../img/logo.png" /></a>
+        <ul>
+          <li><a href="#Universe">靈感角落</a></li>
+          <li><a href="../template/shop.html">靈感補給</a></li>
+          <li><a href="../template/test.html">我的書房</a></li>
+        </ul>
+      </nav>
+
+      <div class="main">
+        <div class="left_nav">
+          <div class="head_shot">
+            <div class="photo"></div>
+            <h1>Name</h1>
+          </div>
+          <ul>
+            <li><a href="../template/test.html">回書房</a></li>
+            <li><a href="#">書籍總覽</a></li>
+            <li><a href="#">相片集</a></li>
+            <li><a href="#">使用教學</a></li>
+            <li><a href="#">書店</a></li>
+          </ul>
+        </div>
+
+        <div class="profile">
+          <div class="personsetting">
+            <h1>個人設定</h1>
+            <ul>
+              <li>
+                <label for="name">暱稱</label>
+                <input type="text" id="name">
+              </li>
+              <li>
+                <label>性別</label>
+                <div class="gender">
+                <label for="male" class="male">
+                  <span>男生</span>
+                  <input type="radio" name="gender" id="male">
+                </label>
+                <label for="female" class="female">
+                  <span>女生</span>
+                  <input type="radio" name="gender" id="female">
+                </label>
+              </div>
+                </li>
+              <li> 
+                <label for="birthday">生日</label>
+                <input type="date" id="birthday">
+             </li>
+              <li>
+                <label for="Email">E-mail</label>
+                <input type="email">
+              </li>
+              <li>
+                <label for="password">密碼</label>
+                <button class="change_password">密碼變更</button>
+              </li>
+              <li>
+                <label for="fontSize">字體大小</label>
+                <select name="fontSize" id="fontSize">
+                  <option  value="large">大</option>
+                  <option  value="middle" >中</option>
+                  <option  value="small">小</option>
+                </select>
+              </li>
+              <li>
+                <label for="fontStyle">字體樣式</label>
+                <select name="font" id="fontStyle">
+                  <option value="Hachi ">Hachi </option>
+                  <option value="Kablammo">Kablammo</option>
+                  <option value="lato">lato</option>
+                </select>
+              </li>
+            </ul>
+
+    </div>
+  <div class="booksetting">
+    <h1>日記設定</h1>
+    <ul>
+      <li>
+        <label for="bookname">封面標題</label>
+        <input type="text" id="bookname">
+      </li>
+      <li>
+        <label for="bottomtext">副標題</label>
+        <input type="text" id="bottomtext">
+      </li>
+      <li>
+        <label for="bookphoto">封面照片</label>
+        <input type="file" name="bookphoto" id="photo" accept="image/*">
+        <button type="submit">上傳</button>
+      </li>
+      <li>
+        <label for="textcolor">文字顏色</label>
+        <input type="color" id="textcolor" value="#000000">
+      </li>
+      <li>
+        <label for="bg_color">封面顏色</label>
+        <select name="cover-color" id="cover-color">
+          <option value="Midnight-blue">Midnight Blue</option>
+          <option value="lightblue">Light Blue</option>
+          <option value="Red">Red</option>
+        </select>
+      </li>
+      <li>
+        <label for="backtext">背面文字</label>
+        <textarea name="backtext" id="backtext" rows="4" cols="30"></textarea>
+      </li>
+    </ul>
+  </div>
+    </div>
+    <button class="save">保存</button>
+  </div>
+</div>
+    <script src="../js/jquery-3.7.1 copy.js"></script>
+    <script src="../js/personal.js"></script>
+  </body>
+</html>

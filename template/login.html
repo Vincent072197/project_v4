@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登入頁面</title>
+  <link rel="stylesheet" href="../css/login.css ">
+</head>
+<body>
+  <div class="wrapper">
+    <div class="login-container">
+      <div class="logo">
+        <a href="../template/home.html">
+        <h2>Nooklit</h2>
+      </a>
+      </div>
+      <h1>登入</h1>
+      <form class="login-form">
+        <div class="input-group">
+          <label for="username">帳號</label>
+          <input type="text" id="username" placeholder="請輸入您的帳號">
+        </div>
+        <div class="input-group password-group">
+          <label for="password">密碼</label>
+          <input type="password" id="password" placeholder="請輸入您的密碼">
+          <span class="show-password" onclick="togglePassword()">顯示</span>
+        </div>
+        <button type="submit" class="submit-btn">登入</button>
+        <div class="or">或</div>
+        <a href="register.html" class="register-link">註冊新帳號</a>
+      </form>
+    </div>
+  </div>
+  <script>
+    function togglePassword() {
+      const passwordInput = document.getElementById('password');
+      const type = passwordInput.type === 'password' ? 'text' : 'password';
+      passwordInput.type = type;
+    }
+  </script>
+</body>
+</html>

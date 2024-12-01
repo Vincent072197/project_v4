@@ -1,0 +1,375 @@
+@import url(../css/reset.css);
+
+
+html{
+    font-size: 62.5%;
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f7f3;
+    color: #333333;
+
+}
+
+.header{
+    height: 100px;
+    background-color: #f2e6d9;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+.header a{
+    grid-area: logo;
+}
+
+.header img{
+    /* grid-area: logo; */
+    width: 170px;
+}
+.header_content{
+    width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto  auto;
+    grid-template-areas: 
+    "logo progress_bar "
+    "logo progress ";
+    /* row不用寫，上面area直接寫兩行就變2row */
+    column-gap: 60px;
+}
+.progress_bar{
+grid-area: progress_bar ;
+font-size: 1.7rem;
+align-self: end;
+color: #666666;
+}
+.progress_bar ul{
+display: flex;
+gap: 42px;
+justify-content: center;
+}
+
+.progress_bar ul li{
+    color: #cc6666; 
+    border-radius: 5px;
+}
+.progress_bar ul li:nth-child(2n+2){
+   background-color: rgba(14, 14, 14, 0.2);
+}
+.progress_bar ul li:nth-child(2n+3){
+    color: rgba(14, 14, 14, 0.4);
+    }
+.progress_bar .step-line{
+    width: 104px; 
+    height: 2px;
+    background-color: #cc6666;
+    align-self: center;
+
+}
+.progress{
+grid-area: progress;
+font-size: 1.7rem;
+color: #666666;
+}
+.progress ul{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-left: 19px;
+}
+.progress ul li{
+    
+
+}
+
+.progress ul li:nth-child(n+2){
+   
+    color: rgba(102, 102, 102, 0.6);
+}
+
+/* -------------middle-------- */
+.wrapper{
+    width: 1200px;
+    background-color: #ffffff;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+   }
+
+.top{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e4df;
+    color: #cc6666;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    
+}
+
+.top span:nth-child(1){
+margin-right: 613px;
+
+}
+.top span:nth-child(2){
+   margin-right: 84px;
+}
+.top span:nth-child(3){
+margin-right: 105px;
+ 
+}
+.top span:nth-child(4){
+
+}
+.second{
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid #ccc;
+    background-color: #f8f5f2;
+}
+.second span{
+    background-color: #f2e6e6; 
+    color: #cc6666;
+    line-height: 60px;
+    margin-left: 20px;
+    font-size: 1.3rem;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.main{
+    /* padding: 20px 0;
+    width: 100%;
+
+   display: grid;
+   grid-template-columns: auto auto auto auto auto auto;
+   grid-template-areas: 
+   "img detail price amount total delete"
+   ;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px   ;
+
+    font-size: 1.5rem; */
+    
+}
+.main_above{
+    padding: 20px 0;
+    width: 100%;
+
+   display: grid;
+   grid-template-columns: auto auto auto auto auto auto;
+   grid-template-areas: 
+   "img detail price amount total delete"
+   ;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px   ;
+
+    font-size: 1.5rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+.main img{
+    grid-area: img;
+
+    width: 160px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+}
+.main_detail{
+    grid-area: detail;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.main_detail h1{
+    font-size: 2.3rem;
+    color: #333333;
+}
+
+.main_detail .promotion{
+
+}
+
+.main_detail .promotion span{
+    border: 1px solid #cc6666;
+    background-color:rgba(204, 102, 102, 0.1) ;
+    letter-spacing: 1px;
+    color:#cc6666; ;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.main_detail .theme{
+
+}
+
+.main_detail .theme span{
+    border: 1px solid #cc6666;
+    background-color: rgba(204, 102, 102, 0.1);
+    letter-spacing: 1px;
+    color:#cc6666;
+    padding: 2px;
+    border-radius: 2px;
+}
+
+
+.price{
+    grid-area: price;
+    text-align: center;
+    font-size: 2rem;
+    color: #cc6666;
+}
+.price::before{
+    content:"$";
+
+}
+.amount{
+    height: 30px;
+}
+.amount_count{
+    display: inline-flex;
+    height: 100%;
+}
+.amount_count button{
+    width: 30px;
+    border: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1.5rem;
+}
+.total{
+    grid-area: total;
+    font-size: 2rem;
+    color: #cc6666;
+}
+.total::before{
+    content: "$";
+    
+    
+}
+.delete{
+    grid-area: delete;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.8;
+}
+
+.main_below{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+    padding: 20px 0;
+    gap: 80px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+
+.items_total{
+   /* grid-column: 4/5;
+   grid-row: 2/3; */
+   font-size: 1.5rem;
+   text-align: center;
+}
+
+.items_total_price{
+    /* grid-column: 5/6;
+    grid-row: 2/3; */
+    text-align: center;
+    font-size: 2.5rem;
+    color: red;
+    margin-right: 138px;
+}
+.items_total_price::before{
+    content: "$";
+    font-size: 2rem;
+    color: red;
+}
+
+
+.price{
+
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.amount{
+
+}
+
+.amount input{
+    width: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+
+.checkout{
+    width: 1200px;
+    height: 150px;
+    position: fixed;
+    bottom: 0;
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0 0 14px rgba(0,0,0,.15);
+}
+
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.15);
+   
+}
+
+.checkout_Btn_left{
+    font-size: 2rem;
+    color: #cc6666;
+}
+
+.checkout button{
+    width: 150px;
+    height: 50px;
+    background-color: #cc6666; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout button a{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.checkout button:hover {
+    background-color: #b95555; 
+}

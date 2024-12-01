@@ -1,0 +1,303 @@
+@import url("../css/reset.css");
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    
+    font-family: "Arial", sans-serif;
+    background-color: #f9f7f3; 
+    margin: 0;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.wrapper .roll{
+    width: 480px;
+    position: absolute;
+    top: -88px;
+    left: -450px;
+}
+
+.wrapper {
+    position: relative;
+    width: 1200px;
+    margin:  auto;
+    background-image: url(../img/table.bg.jpg);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    /* overflow: hidden; */
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    padding-top: 30px;
+    box-sizing: border-box;
+    max-width: 1200px;
+}
+
+/* ---------top-------------- */
+.top_nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    gap: 20px;
+   
+}
+
+.top_nav ul{
+    background-color: rgba(77, 76, 76, 0.9);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.5);
+    height: 60px;
+    width: 350px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 60px;
+    gap: 35px;
+    border-radius: 5px 0 0 5px;
+}
+.top_nav ul li{
+
+}
+
+.top_nav ul li a{
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    text-align: center;
+    line-height: 60px;
+}
+
+.logo img {
+    width: 200px;
+    padding-top: 17px;
+    margin-left: 31px;
+}
+
+/* --------left--------------------- */
+
+.left_nav {
+    background-color: #d2b48c;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 15%;
+  font-size: 2rem;
+  border: 1px solid rgb(82, 82, 82);
+
+
+ 
+}
+
+.head_shot {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.head_shot .photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    margin: 0 auto;
+
+}
+
+.head_shot h1 {
+    font-size: 2.4rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.left_nav ul {
+    list-style: none;
+    padding: 0;
+
+}
+
+.left_nav ul li {
+    margin-bottom: 15px;
+  text-align: center;
+  background-color: #e6d4c0;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.left_nav ul li:hover {
+    background-color: #cc6666;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+
+  .left_nav ul li a {
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #333;
+    display: block;
+  }
+
+
+/* ----------form------------------- */
+
+.profile{
+    
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
+    gap: 100px;
+    width: 60%;
+ 
+}
+.personsetting,.booksetting{
+    flex-basis: 0;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+.personsetting{
+ 
+}
+
+.booksetting{
+
+}
+
+
+.profile h1{
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #cc6666;
+}
+.profile ul{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    
+}
+
+.profile ul li{
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.personsetting ul li .gender{
+    display: inline-flex;
+    gap: 35px;
+    position: relative;
+}
+
+.male{
+    position: relative;
+}
+.female{
+    position: relative;
+}
+
+
+
+.personsetting ul li .gender input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -3px;
+    right: -26px;
+    accent-color: #cc6666; /*  點選的顏色 */
+}
+
+.booksetting input[type="file"]{
+    font-size: 1.5em;
+}
+
+.profile label{
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+
+.profile .gender label span{
+    font-size: 1.7rem;
+}
+
+.change_password{
+    width: 35%;
+    height: 30px;
+    background-color: #cc6666;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color: #f3f3f3;
+
+}
+
+.change_password:hover{
+    transform: scale(1.1);
+    box-shadow:  1px 1px 10px 1px  rgba(0, 0, 0, 0.3);
+    /* box-shadow: [水平偏移量] [垂直偏移量] [模糊半徑] [擴散半徑] [顏色] */
+}
+
+
+.profile input{
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px solid #cc6666;
+    font-size: 2rem;
+}
+
+.profile input:focus{
+outline: none;
+}
+
+.profile input[type="file"]{
+    margin-bottom: 5px;
+    border: none;
+
+}
+ 
+.profile input[type="color"]{
+    border: none;
+}
+select{
+    font-size: 2rem;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); 
+}
+
+textarea{
+    background-color: transparent;
+}
+
+
+
+.save{
+    align-self: center;
+    border-radius: 50%;
+    font-size: 1.8rem;
+    font-weight: bold;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    margin: 0 10px;
+    border: 2px solid black;
+    transform: rotate(15deg);
+}
+
+.save:hover {
+    background-color:transparent;
+    transform: scale(1.1);
+}

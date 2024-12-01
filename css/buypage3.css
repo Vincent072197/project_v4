@@ -1,0 +1,484 @@
+@import url(../css/reset.css);
+
+
+html{
+    font-size: 62.5%;
+}
+
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f9f7f3;
+    color: #333333;
+
+}
+
+.header{
+    height: 100px;
+    background-color: #f2e6d9;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.header a{
+    grid-area: logo;
+}
+.header img{
+ 
+    width: 170px;
+}
+.header_content{
+    width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    display: grid;
+    grid-template-columns: auto  auto;
+    grid-template-areas: 
+    "logo progress_bar "
+    "logo progress ";
+    /* row不用寫，上面area直接寫兩行就變2row */
+    column-gap: 60px;
+}
+.progress_bar{
+grid-area: progress_bar ;
+font-size: 1.7rem;
+align-self: end;
+color: #666666;
+}
+.progress_bar ul{
+display: flex;
+gap: 42px;
+justify-content: center;
+}
+
+.progress_bar ul li{
+    color: #cc6666; 
+    border-radius: 5px;
+}
+.progress_bar ul li:nth-child(2n+4){
+   background-color: rgba(14, 14, 14, 0.2);
+}
+.progress_bar ul li:nth-child(2n+5){
+    color: rgba(14, 14, 14, 0.4);
+    }
+.progress_bar .step-line{
+    width: 104px; 
+    height: 2px;
+    background-color: #cc6666;
+    align-self: center;
+
+}
+.progress{
+grid-area: progress;
+font-size: 1.7rem;
+color: #666666;
+}
+.progress ul{
+    display: flex;
+    justify-content: center;
+    gap: 90px;
+    margin-left: 19px;
+}
+.progress ul li{
+    
+
+}
+
+.progress ul li:nth-child(n+3){
+   
+    color: rgba(102, 102, 102, 0.6);
+}
+
+/* -------------middle-------- */
+.wrapper{
+    width: 1200px;
+    background-color: #f9f7f3;
+    height: 100%;
+    margin: 0 auto;
+    margin-top: 150px;
+    /* border: 1px solid red; */
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    margin-bottom: 200px;
+   }
+
+.top{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e4df;
+    color: #cc6666;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    
+}
+
+.second{
+    width: 100%;
+    height: auto;
+    background-color: #f8f5f2;
+    
+}
+.second ul{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 30px;
+    margin-left: 20px;
+    padding: 20px 0;
+}
+
+.second ul li {
+    font-size: 1.5rem;
+    line-height: 80px;
+    border: 1px solid #cc6666; 
+    border-radius: 8px; 
+    display: inline-flex;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #f8f5f2; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    color: #694a3a; 
+}
+
+.second ul li:hover {
+    background-color: #e8e4df; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+}
+
+.second ul li input[type="radio"] {
+    margin-right: 10px; 
+    accent-color: #cc6666; /* 改變選中圓點的顏色 */
+}
+
+.second ul li h2 {
+    font-size: 1.8rem;
+    color: #333333;
+    margin: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+
+
+.order_contact{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e4df;
+    color: #cc6666;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}    
+
+.order_contact_detail{
+    width: 100%;
+    height: auto;
+    background-color: #f8f5f2; 
+    padding: 20px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+
+.order_contact_detail h1 {
+    font-size: 1.8rem; 
+    color: #333333;
+    margin: 0; 
+}
+
+.order_contact_detail input[type="text"], 
+.order_contact_detail input[type="number"]{
+width: 20%;
+padding: 10px;
+font-size: 1.5rem;
+border: 1px solid #ccc;
+border-radius: 5px;
+box-shadow: inset 0 2px 4px rgba(0 ,0 ,0 ,0.1);
+}
+
+.address_section {
+    display: flex;
+    align-items: center; 
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+.address_section label {
+    font-size: 1.5rem;
+    color: #333333;
+    margin-right: 10px; 
+}
+
+.address_section input[type="number"]{
+    width: 5%;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+
+}
+
+.address_section input[type="text"] {
+    width: 40%;
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.address_section select {
+    width: 10%; 
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); 
+    outline: none;
+}
+
+.address_section select:focus {
+    border-color: #cc6666; 
+    box-shadow: 0 0 8px rgba(204, 102, 102, 0.4); 
+}
+/* -----------------creditcard------------- */
+
+.creditcard-info {
+    margin-top: 5px;
+    padding: 20px;
+    background-color: #f8f5f2;
+    flex-direction: column;
+    gap: 15px;
+
+}
+
+
+.creditcard-info label {
+    font-size: 1.8rem;
+    color: #694a3a;
+    display: inline-flex;
+    width: 120px;
+}
+
+.creditcard-info input {
+    padding: 10px;
+    font-size: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.creditcard-info span{
+    font-size: 1.3rem;
+    color: red;
+}
+
+/* ------------------------- */
+
+.reciept_info{
+    width: 100%;
+    height: 40px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e4df;
+    color: #cc6666;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-start;
+    box-sizing: border-box;
+}
+.reciept_opt{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.3rem;
+    padding: 20px;
+    gap: 10px;
+    background-color: #f8f5f2;
+    color:#848484;
+  
+}
+
+.reciept_opt select{
+    width: 30%; 
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #333333;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05); 
+    outline: none;
+}
+
+/* ----------------------------- */
+
+.order_confirm{
+
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    align-items: center;
+    justify-content: center;
+    background-color: #e8e4df;
+    color: #cc6666;
+    font-size: 2rem;
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.order_confirm button{
+    margin-right: 30px;
+    border: none;
+    background-color: #e8e4df;
+    font-size: 2.3rem;
+    color: #cc6666;
+    cursor: pointer;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #cc6666; 
+    padding: 5px;
+    border-radius: 5px;
+
+}
+.order_confirm_title_wrapper{
+    padding:0 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.order_confirm_title{
+    display: flex;
+    line-height: 50px;
+
+    font-size: 1.7rem;
+    border-bottom: 1px solid #ccc;
+
+
+}
+
+.order_confirm_title span:nth-child(1){
+width: 55%;
+
+}
+
+.order_confirm_title span:nth-child(2){
+    width: 15%;
+}
+.order_confirm_title span:nth-child(3){
+    width: 15%;
+}
+.order_confirm_title span:nth-child(3){
+    width: 15%;
+}
+
+
+.order_confirm_detail{
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    background-color: #ffffff;
+    font-size: 1.7rem;
+    
+}
+
+.order_confirm_detail_img{
+    width: 55%;
+    display: flex;
+    align-items: center;
+}
+
+.order_confirm_detail img{
+    width: 120px;
+}
+
+.order_confirm_detail .main_detail {
+    width: 15%;
+}
+.order_confirm_detail .price{
+    width: 15%;
+}
+.order_confirm_detail .quantity{
+    width: 15%;
+}
+.order_confirm_detail .total{
+    color: red;
+}
+
+
+/* -------------------------- */
+
+.checkout{
+    width: 1200px;
+    height: 150px;
+    position: fixed;
+    bottom: 0;
+    background-color: #f5f5f5;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0 0 14px rgba(0,0,0,.15);
+}
+
+.checkout{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    padding: 0 40px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.15);
+   
+}
+
+.checkout_Btn_left{
+    font-size: 2.3rem;
+    color: #cc6666;
+}
+.checkout_Btn_left span:nth-child(2)::before{
+    content: "$";
+    margin-right: 5px;
+}
+
+.checkout button{
+    width: 150px;
+    height: 50px;
+    background-color: #cc6666; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.checkout button:hover {
+    background-color: #b95555; 
+}

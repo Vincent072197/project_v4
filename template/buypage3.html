@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="../css/buypage3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="../js/jquery-3.7.1 copy.js"></script>
+    <script src="../js/buypage3.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header_content">
+        <a href="../template/index.html">
+      <img src="../img/logo.png" alt="LOGO" />
+        </a>
+<div class="progress_bar">
+    <ul>
+        <li>1</li>
+        <li class="step-line"></li>
+        <li>2</li>
+        <li class="step-line"></li>
+        <li>3</li>
+    </ul>
+</div>
+<div class="progress">
+    <ul>
+        <li>購物車</li>
+        <li>選擇配送與付款資訊</li>
+        <li>完成訂單</li>
+    </ul>
+</div>
+ </div>
+  </div>
+    <div class="wrapper">
+        <div class="top">
+            <span>選擇配送方式</span>
+        </div>
+        <div class="second">
+     <ul>
+        <li>
+            <input type="radio" name="delivery" id="711">
+            <label for="711">
+            <h2>7-ELEVEN取貨</h2>
+            </label>
+        </li>
+        <li>
+            <input type="radio" name="delivery" id="family">
+            <label for="family">
+            <h2>全家取貨</h2>
+        </label>
+        </li>
+        <li>
+            <input type="radio" name="delivery" id="deli">
+            <label for="deli">
+            <h2>台灣-宅配(台灣地區)</h2>
+        </label>
+        </li>
+        <li>
+            <input type="radio" name="delivery" id="byself">
+            <label for="byself">
+            <h2>自己來拿</h2>
+        </label>
+        </li>
+     </ul>
+        </div>
+               <div class="order_contact">
+                <span>訂購人資訊</span>
+            </div>
+            <div class="order_contact_detail">
+                <h1>訂購人姓名</h1>
+                <input type="text" value="Name">
+                <h1>訂購人電話</h1>
+                <input type="number">
+            </div>
+
+
+            <div class="order_contact">
+                <span>收件人資訊</span>
+            </div>
+            <div class="order_contact_detail">
+                <h1>收件人姓名</h1>
+                <input type="text" value="Name">
+                <h1>收件人電話</h1>
+                <input type="number">
+                <div class="address_section">
+               <label for="address"><h1>地址</h1></label>
+                <input type="number" placeholder="郵遞區號">
+                <select id="city" name="city" required>
+                    <option value="">請選擇城市</option>
+                    <option value="台北市">台北市</option>
+                    <option value="新北市">新北市</option>
+                    <option value="基隆市">基隆市</option>
+                    <option value="桃園市">桃園市</option>
+                    <option value="新竹市">新竹市</option>
+                    <option value="新竹縣">新竹縣</option>
+                    <option value="苗栗縣">苗栗縣</option>
+                    <option value="台中市">台中市</option>
+                    <option value="彰化縣">彰化縣</option>
+                    <option value="南投縣">南投縣</option>
+                    <option value="雲林縣">雲林縣</option>
+                    <option value="嘉義市">嘉義市</option>
+                    <option value="嘉義縣">嘉義縣</option>
+                    <option value="台南市">台南市</option>
+                    <option value="高雄市">高雄市</option>
+                    <option value="屏東縣">屏東縣</option>
+                    <option value="宜蘭縣">宜蘭縣</option>
+                    <option value="花蓮縣">花蓮縣</option>
+                    <option value="台東縣">台東縣</option>
+                    <option value="澎湖縣">澎湖縣</option>
+                    <option value="金門縣">金門縣</option>
+                    <option value="連江縣">連江縣</option>
+                </select>
+                <select id="district" name="district" required>
+                    <option value="">請選擇區域</option>
+                </select>
+                <input type="text" placeholder="詳細地址">
+            </div>
+            </div>
+            <div class="top">
+                <span>付款方式</span>
+            </div>
+            <div class="second">
+         <ul>
+            <li>
+                <input type="radio" name="payment" id="creditcard">
+                <label for="creditcard">
+                <h2>信用卡付款</h2>
+                </label>
+            </li>
+            <li>
+                <input type="radio" name="payment" id="linePay">
+                <label for="linePay">
+                <h2>Line Pay</h2>
+            </label>
+            </li>
+            <li>
+                <input type="radio" name="payment" id="ATM">
+                <label for="ATM">
+                <h2>ATM轉帳</h2>
+            </label>
+            </li>
+            <li>
+                <input type="radio" name="payment" id="ApplePay">
+                <label for="ApplePay">
+                <h2>Apple Pay</h2>
+            </label>
+            </li>
+         </ul>
+
+         <div class="creditcard-info" style="display: none;">
+
+            <div>
+                <label for="cardID">持卡人姓名：</label>
+                <input type="text" id="cardID" />
+              </div>
+ 
+            <div>
+              <label for="card-number">卡號：</label>
+              <input type="text" id="card-number" placeholder="請輸入信用卡號" />
+            </div>
+            <div>
+              <label for="card-expiry">有效日期：</label>
+              <input type="text" id="card-expiry" placeholder="MM/YY" />
+            </div>
+            <div>
+              <label for="card-cvv">安全碼：</label>
+              <input type="password" id="card-cvv" placeholder="CVV" />
+            </div>
+            <span>※ 若3D驗證畫面無法顯示內容，請稍候再試或改用其他付款方式。</span>
+            <span>※ 開放使用美國運通／AMEX卡別之信用卡。</span>
+            <span>※ 部分海外信用卡驗證較嚴格，若交易失敗，請嘗試其他發卡行之信用卡結帳。</span>
+          </div>
+        </div>
+        <div class="reciept_info">
+            <span>發票資訊</span>
+        </div>
+        <div class="reciept_opt">
+            <span>※您的發票預設為電子發票託管，若中獎我們將會另行通知，如需索取個人二聯紙本發票請於訂單完成取貨後另行申請</span>
+            <span>※發票相關事項請參考<a>常見問題>電子發票</a></span>
+            <select name="reciept_opt" id="reciept_opt">
+                <option value="">二聯式電子發票(存入會員帳號)</option>
+                <option value="">二聯式電子發票(手機條碼載具)</option>
+                <option value="">發票捐贈</option>
+            </select>
+        </div>
+        <div class="order_confirm">
+            <span>訂單確認</span>
+            <button id="order_confirm_call">
+                <h1>訂單明細</h1>
+                <i class="fa-solid fa-plus"></i>
+            </button>
+        </div>
+        <div class="order_confirm_all" style="display: none;">
+        <div class="order_confirm_title_wrapper">
+        <div class="order_confirm_title">
+            <span>一般訂單</span>
+            <span>優惠價</span>
+            <span>數量</span>
+            <span>總計</span>
+        </div>
+    </div>
+        <div class="order_confirm_detail">
+            <div class="order_confirm_detail_img">
+            <img src="../img/temple.jpg" alt="" style="margin-right: 10px;">
+            <div class="main_detail">
+                <h1>金閣寺</h1>
+        </div>
+            </div>
+            <div class="price">
+                <span>$300</span>
+            </div>
+            <div class="quantity">
+                <span>1</span>
+            </div>
+            <div class="total">
+                <span>$300</span>
+            </div>
+        </div>
+       </div>
+        <div class="checkout">
+            <div class="checkout_Btn_left">
+                <span>商品總金額</span>
+                <span>300</span>
+            </div>
+            <button ID="checkout">確認結帳</button>
+        </div>   
+
+        <script>
+            const districtData = {
+                "台北市": ["中正區", "大同區", "中山區", "松山區", "大安區", "萬華區", "信義區", "士林區", "北投區", "內湖區", "南港區", "文山區"],
+                "新北市": ["板橋區", "新莊區", "中和區", "永和區", "土城區", "樹林區", "三峽區", "鶯歌區", "三重區", "蘆洲區", "五股區", "泰山區", "林口區", "八里區", "淡水區", "三芝區", "石門區", "金山區", "萬里區", "汐止區", "瑞芳區", "貢寮區", "平溪區", "雙溪區", "深坑區", "石碇區", "新店區", "坪林區", "烏來區"],
+                "基隆市": ["中正區", "七堵區", "暖暖區", "仁愛區", "中山區", "安樂區", "信義區"],
+                // 其他城市與區域資料...
+                "連江縣": ["南竿鄉", "北竿鄉", "莒光鄉", "東引鄉"]
+            };
+        
+            // 當城市選項改變時載入對應的區域
+            document.getElementById("city").addEventListener("change", function () {
+                const city = this.value;
+                const districtSelect = document.getElementById("district");
+                districtSelect.innerHTML = '<option value="">請選擇區域</option>'; // 清空區域選項
+        
+                if (districtData[city]) {
+                    districtData[city].forEach(function (district) {
+                        const option = document.createElement("option");
+                        option.value = district;
+                        option.textContent = district;
+                        districtSelect.appendChild(option);
+                    });
+                }
+            });
+
+            // ------------------ creditcard-------
+
+   
+  document.addEventListener("DOMContentLoaded", function () {
+    const creditCardInput = document.getElementById("creditcard");
+    const paymentInputs = document.querySelectorAll('input[name="payment"]');
+    const creditCardInfo = document.querySelector(".creditcard-info");
+
+    paymentInputs.forEach(input => {
+      input.addEventListener("change", function () {
+        if (creditCardInput.checked) {
+          creditCardInfo.style.display = "flex"; // 顯示信用卡資料框
+        } else {
+          creditCardInfo.style.display = "none"; // 隱藏信用卡資料框
+        }
+      });
+    });
+  });
+
+        // ---------------------confirmdetail---------
+
+        $(document).ready(function(){
+			$("#order_confirm_call").click(function(){
+                $(".order_confirm_all").slideToggle()
+            })
+		})
+
+       document.getElementById('checkout').addEventListener('click',function(){
+        alert("完成訂單")
+       })
+
+
+
+        </script>
+    
+  </body>
+</html>

@@ -1,0 +1,143 @@
+@import url(../css/reset.css);
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f9f7f3;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 400px;
+  background-color: #ffffff;
+  padding: 15px 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.register-container {
+  text-align: center;
+}
+
+.logo {
+  text-align: left;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 2.4rem;
+  color: #cc6666;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  color: #d2b48c;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.4rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.4rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+
+.password-group {
+  position: relative;
+}
+
+.show-password {
+  position: absolute;
+  top: 44px;
+  right: 14px;
+  font-size: 1.2rem;
+  color: #cc6666;
+  cursor: pointer;
+}
+
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 1.6rem;
+  background-color: #cc6666;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: #b95555;
+}
+
+
+.or {
+  font-size: 1.4rem;
+  color: #333;
+  position: relative;
+  margin: 20px 0;
+}
+
+.or::before,
+.or::after {
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 40%;
+  background-color: #ccc;
+  top: 50%;
+}
+
+.or::before {
+  left: 0;
+}
+
+.or::after {
+  right: 0;
+}
+
+.login-link {
+  display: block;
+  font-size: 1.4rem;
+  color: #cc6666;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}

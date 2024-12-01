@@ -1,0 +1,105 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  font-family: "Georgia", serif; /* 更適合閱讀的字體 */
+  background-color: #f9f7f3; /* 柔和米白背景色，減少眼部疲勞 */
+  color: #333333; /* 深灰色，適合長時間閱讀 */
+  line-height: 1.8; 
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-color: #444444;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10; /* 確保 header 在內容上方 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.container {
+  position: relative;
+  background-color: #ffffff;
+  width: 100%;
+  height: calc(100vh - 100px); /* 扣除 header 高度 */
+  overflow: hidden;
+  margin-top: 100px; /* 確保內容不被 header 擋住 */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+  display: flex;
+  position: fixed;
+  height: 100vh;
+  width: max-content;
+}
+
+.panel {
+  margin-top: 20px;
+  flex: 0 0 100vw;
+  height: calc(100vh - 100px); /* 扣除 header 高度 */
+  display: flex;
+  align-items: start;
+  justify-content:flex-start;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444444;
+  background: linear-gradient(45deg, #ffffff, #f9f7f3);
+  border-right: 2px solid #fff;
+  border-bottom: 1px solid #e0e0e0;
+  writing-mode: vertical-lr; /* 垂直模式，從右到左 */
+  text-orientation: upright; /* 讓每個字直立顯示 */
+}
+
+.panel:first-child{
+ align-items: center;
+}
+
+.ch1{
+  display: flex;
+  flex-direction: column;
+
+}
+.ch1 h1{
+  margin-top: 50px;
+  line-height: 1.3;
+  letter-spacing: 10px;
+}
+
+.panel:last-child {
+  border-bottom: none; /* 最後一個 panel 去掉分隔線 */
+}
+
+.panel p {
+  text-indent: 2em; /* 首行縮進 */
+  margin: 0 0 20px 0; /* 段落之間保持距離 */
+}
+.panel {
+  scroll-behavior: smooth; /* 平滑滾動，減少晃動感 */
+}
+
+.panel h1 {
+  font-size: 3rem;
+  color: #cc6666; /* 柔和紅色標題，吸引注意 */
+  margin-bottom: 10px;
+
+}
+.panel p{
+  text-indent: 50px;
+  padding: 50px;
+  line-height: 40px;
+}

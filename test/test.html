@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>垂直與水平滾動切換</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    .container {
+      height: 300vh; /* 模擬垂直滾動空間 */
+    }
+    .horizontal-section {
+      position: relative;
+      display: flex;
+      height: 100vh;
+      width: 300vw; /* 水平滾動寬度 */
+      background: lightblue;
+    }
+    .horizontal-item {
+      flex: 1;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+    }
+    .vertical-section {
+      height: 200vh; /* 垂直滾動空間 */
+      background: lightcoral;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="vertical-section">垂直滾動區域</div>
+    <div class="horizontal-section">
+      <div class="horizontal-item">1</div>
+      <div class="horizontal-item">2</div>
+      <div class="horizontal-item">3</div>
+    </div>
+    <div class="vertical-section">繼續垂直滾動</div>
+  </div>
+
+  <script src="../js/jquery-3.7.1 copy.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- <script>
+    // 初始化 GSAP 和 ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // 設定水平滾動動畫
+    const horizontalSection = document.querySelector('.horizontal-section');
+    gsap.to(horizontalSection, {
+      x: () => -(horizontalSection.scrollWidth - window.innerWidth), // 水平滾動範圍
+      ease: 'none',
+      scrollTrigger: {
+        trigger: horizontalSection,
+        start: 'top top',
+        end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`, // 滾動長度
+        pin: true, // 固定水平區域
+        scrub: true, // 平滑滾動
+      },
+    });
+  </script> -->
+</body>
+</html>
