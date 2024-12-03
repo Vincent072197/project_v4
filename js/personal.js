@@ -45,4 +45,26 @@ $('.save').click(function(){
     localStorage.setItem('backtextarea',backtextarea);
     localStorage.setItem('NickName',NickName);
 
+    alert("更新完成")
+
 })
+
+
+// upload image
+
+document.getElementById('upload').addEventListener('click', function () {
+    const fileInput = document.getElementById('photo');
+    const file = fileInput.files[0]; // 獲取上傳的文件
+
+    if (file) {
+        const reader = new FileReader(); // 創建 FileReader 來讀取文件
+        reader.onload = function (e) {
+            const imageData = e.target.result; // 獲取圖片數據 URL
+            localStorage.setItem('coverImage', imageData); // 保存到 localStorage
+            alert('圖片已成功上傳並保存！');
+        };
+        reader.readAsDataURL(file); // 以數據 URL 格式讀取文件
+    } else {
+        alert('請選擇一張圖片！');
+    }
+});

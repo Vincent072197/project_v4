@@ -34,11 +34,11 @@
         <div class="left_nav">
           <div class="head_shot">
             <div class="photo"></div>
-            <h1>Name</h1>
+            <h1 class="Name">Name</h1>
           </div>
           <ul>
             <li><a href="../template/personal.html">個人設定</a></li>
-            <li><a href="#">書籍總覽</a></li>
+            <li><a href="../template/bookshelf.html">書籍總覽</a></li>
             <li><a href="#">相片集</a></li>
             <li><a href="#">使用教學</a></li>
             <li><a href="../template/shop.html">書店</a></li>
@@ -50,49 +50,50 @@
           <div class="main">
             <div class="book-font" id="open-book">
               <div class="book-cover  book-color  ">
-                <h1 class="title">Vincent的日記</h1>
+                <span id="bookid">0</span> <!-- 這行是用來識別每本書用的代號 -->
+                <h1 class="title">Welcome</h1>
                 <div class="photoframe">
-                <img src="../img/pegiun.jpeg" alt="">
+                <img src="../img/002.JPG" alt="" class="CoverImage">
               </div>
-                <div class="publisher">Oxford University Press, USA</div>
+                <div class="publisher">Write something</div>
               </div>
-              <div class="book-cover-back  book-color"></div> <!--書封面內頁 -->
+              <div class="book-cover-back  book-color">
+              </div> <!--書封面內頁 -->
             </div>
             <div class="book-page">
               <div id="page-1" class="page">
-                <h3>Lockwood visits Wuthering Heights</h3>
-                <p>1801 I have just returned from a </p>
-                <p>“Mr. Heathcliff!” I said.</p>
-                <p>A nod was the answer.</p>
-                <p>“Mr. Lockwood, your new tenant, sir. I do myself the honour of calling as soon as possible after my arrival, to express the hope that I have not inconvenienced you by my perseverance in soliciting the occupation of Thrushcross Grange”</p>
+               <textarea name="" id="diary-textarea" rows="20" cols="47" placeholder="寫下今天的心情"></textarea>
+
               </div>
-              <div class="page-number">- 1 -</div>
             </div>
             <div class="book-back book-color">
               <div class="description">
-                <p>"Ideal for the college survey course: judicious introduction plus just the right admixture of explanatory notes (vital for American students' comprehension of dialect words), up-to-date bibliography, and several other brief, indispensable supports to well-informed reading."</p>
-                <p class="txt-right">--Katherine Linehan, Oberlin College</p>
+                <p>“There is no eternal winter in the world; every effort paves the way for spring.”</p>
               </div>
               <div class="isbn"><img src="http://www.bluesdream.com/case/css3/3d-book-showcase/images/isbn.png"></div>
             </div>
             <div class="book-bone book-color">
-              <h2>Emily Bronte　Wuthering Heights</h2>
+              <h2>Nooklit</h2>
             </div>
             <div class="book-top"></div>
             <div class="book-right"></div>
             <div class="book-bottom"></div>
           </div>
         </div>
-
+        <div class="function">
         <div id="opt">
           <dl>
             <dt>Console</dt>
+            <dd id="StartNew">Start New</dd>
+            <dd id="bookSave">Save</dd>
+            <br>
             <dd id="view-cover" class="cur">View Cover</dd>
             <dd id="view-back">View Back</dd>
             <dd id="view-rotate">360° Showcase</dd>
           </dl>
         </div>
       </div>
+    </div>
     </div>
     <script src="../js/jquery-3.7.1 copy.js"></script>
     <script src="../js/index.js"></script>

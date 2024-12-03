@@ -1,0 +1,102 @@
+body{
+	background:#ccc;
+	overflow: hidden;
+}
+
+.bookframe{
+	width: 700px;
+	height: 500px;
+	position: absolute;
+	top: 20%;
+	left:17%;
+	/* border: 1px solid red; */
+	display: none;
+}
+#dynamic-books{
+
+	width:700px;
+	height:500px;
+	
+
+}
+
+#dynamic-books .turn-page{
+	background-color:white;
+	
+}
+
+#dynamic-books .cover{
+	background:#29303A;
+
+}
+
+#dynamic-books .cover h1{
+	color:white;
+	text-align:center;
+	font-size:4rem;
+	margin-top: 50px;
+
+}
+.photo-wrapper{
+	width: 100%;
+	height: 200px;
+	margin-top: 80px;
+}
+
+.photo-wrapper img{
+	width: 100%;
+    height:100%;
+    object-fit:contain;
+}
+
+.SubTitle{
+	color: #FFF;
+	position:absolute;
+    bottom:22px;
+	left: 50%;
+	transform: translateX(-50%);
+	font-size: 1.4rem;
+	
+}
+
+#dynamic-books .loader{
+	background-image:url(loader.gif);
+	width:24px;
+	height:24px;
+	display:block;
+	position:absolute;
+	top:238px;
+	left:188px;
+}
+
+#dynamic-books .data{
+	text-align:center;
+	font-size:40px;
+	color:#999;
+	line-height:500px;
+}
+
+#controls{
+	width:800px;
+	text-align:center;
+	margin:20px 0px;
+	font:30px arial;
+}
+
+#controls input, #controls label{
+	font:30px arial;
+}
+
+#dynamic-books .odd{
+	background-image:-webkit-linear-gradient(left, #FFF 95%, #ddd 100%);
+	background-image:-moz-linear-gradient(left, #FFF 95%, #ddd 100%);
+	background-image:-o-linear-gradient(left, #FFF 95%, #ddd 100%);
+	background-image:-ms-linear-gradient(left, #FFF 95%, #ddd 100%);
+}
+
+#dynamic-books .even{
+	background-image:-webkit-linear-gradient(right, #FFF 95%, #ddd 100%);
+	background-image:-moz-linear-gradient(right, #FFF 95%, #ddd 100%);
+	background-image:-o-linear-gradient(right, #FFF 95%, #ddd 100%);
+	background-image:-ms-linear-gradient(right, #FFF 95%, #ddd 100%);
+}

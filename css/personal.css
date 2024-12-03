@@ -278,6 +278,10 @@ select{
 
 textarea{
     background-color: transparent;
+    height: 75px;
+    resize: none;
+    border:1px solid #cc6666;
+    border-radius: 5px;
 }
 
 

@@ -1,146 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D Book with turn.js</title>
-
-    <style>
-
-/* styles.css */
-body {
-    margin: 0;
-    background-color: #f5f5f5;
-    overflow: hidden;
-}
-
-#book-container {
-    position: fixed;
-    top: 10%;
-    right: 50%;
-    width: 400px; /* 初始寬度為關閉狀態一半 */
-    height: 600px;
-    transition: all 0.5s ease-in-out;
-}
-
-#book-container.center {
-    top: 50%;
-    right: 50%;
-    transform: translate(50%, -50%);
-    width: 800px; /* 打開後的寬度 */
-    height: 600px;
-}
-
-#book {
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-.page {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    border: 1px solid #ccc;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 24px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#cover {
-    background: linear-gradient(135deg, #6b9ac4, #c4dfe6);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-#back-cover {
-    background: linear-gradient(135deg, #c4dfe6, #6b9ac4);
-    color: white;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./openbook.css">
 </head>
 <body>
-    <div id="book-container">
-        <div id="book">
-            <div class="page" id="cover">Cover Page</div>
-            <div class="page">Page 1</div>
-            <div class="page">Page 1</div>
-            <div class="page">Page 2</div>
-            <div class="page">Page 3</div>
-            <div class="page">Page 4</div>
-            <div class="page">Page 5</div>
-            <div class="page">Page 6</div>
-            <div class="page">Page 7</div>
-            <div class="page">Page 8</div>
-            <div class="page">Page 9</div>
-            <div class="page">Page 10</div>    
-            <div class="page">Page 2</div>
-            <div class="page">Page 3</div>
-            <div class="page">Page 4</div>
-            <div class="page">Page 5</div>
-            <div class="page">Page 6</div>
-            <div class="page">Page 7</div>
-            <div class="page">Page 8</div>
-            <div class="page">Page 9</div>
-            <div class="page">Page 10</div>
-            <div class="page" id="back-cover">Back Cover</div>
-        </div>
-    </div>
-    <script src="../js/jquery-3.7.1 copy.js"></script>
-    <script src="./turn.js"></script>
-    <script>
-// script.js
-$(document).ready(function () {
-    let bookOpened = false; // 跟蹤書是否已經打開
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
-    // Initialize the book with turn.js
-    $("#book").turn({
-        width: 800, // 書展開後的寬度
-        height: 600, // 書展開後的高度
-        autoCenter: true,
-        pages: 12, // 總頁數包括封面和背面
-        elevation: 100, // 3D 效果的厚度
-        display: 'double',// 雙頁顯示模式
-        when: {
-        turning: function (event, page, view) {
-            if (page === 1 || page === $("#book").turn("pages")) {
-                // 設置封面為硬的效果
-                $("#cover, #back-cover").css({
-                    transition: "transform 0.6s ease-out",
-                    transform: "rotateY(0deg)"
-                });
-            }
-        },
-    }, 
-    });
+<div id="book">
+	<div class="cover"><h1>The Bible</h1></div>
+</div>
+<button class="open">open</button>
 
-    // 點擊事件：移動到中間並翻開
-    $("#book-container").on("click", function () {
-        if (!bookOpened) {
-            $(this).addClass("center");
-            setTimeout(() => {
-                $("#book").turn("page", 2); // 翻到第一頁內容
-                bookOpened = true; // 設置為已打開
-            }, 500);
-        }
-    });
+<script src="./open.js"></script>
+<!-- <script src="../js/jquery-3.7.1 copy.js"></script> -->
+<script type="text/javascript">
 
-    // 添加事件：最後一頁翻完後顯示背面
-    $("#book").bind("turning", function (event, page, view) {
-        const totalPages = $("#book").turn("pages");
+// $(function(){
+//   $('.open').click(function(){
+//   $('#book').css('display','block')
+// })
 
-        if (page === totalPages) {
-            console.log("You are at the last page, flipping to back cover.");
-        }
-    });
-});
+// })
 
-    </script>
 
+
+	// Sample using dynamic pages with turn.js
+
+	var numberOfPages = 10; 
+
+
+	// Adds the pages that the book will need
+	function addPage(page, book) {
+		// 	First check if the page is already in the book
+		if (!book.turn('hasPage', page)) {
+			// Create an element for this page
+			var element = $('<div />', {'class': 'page '+((page%2==0) ? 'odd' : 'even'), 'id': 'page-'+page}).html('<i class="loader"></i>');
+			// If not then add the page
+			book.turn('addPage', element, page);
+			// Let's assum that the data is comming from the server and the request takes 1s.
+			setTimeout(function(){
+					element.html('<div class="data">Data for page '+page+'</div>');
+			}, 1000);
+		}
+	}
+
+	$(window).ready(function(){
+		$('#book').turn({acceleration: true,
+							pages: numberOfPages,
+							elevation: 50,
+							gradients: !$.isTouch,
+							when: {
+								turning: function(e, page, view) {
+
+									// Gets the range of pages that the book needs right now
+									var range = $(this).turn('range', page);
+
+									// Check if each page is within the book
+									for (page = range[0]; page<=range[1]; page++) 
+										addPage(page, $(this));
+
+								},
+
+								turned: function(e, page) {
+									$('#page-number').val(page);
+								}
+							}
+						});
+
+		$('#number-pages').html(numberOfPages);
+
+		$('#page-number').keydown(function(e){
+
+			if (e.keyCode==13)
+				$('#book').turn('page', $('#page-number').val());
+				
+		});
+	});
+
+	$(window).bind('keydown', function(e){
+
+		if (e.target && e.target.tagName.toLowerCase()!='input')
+			if (e.keyCode==37)
+				$('#book').turn('previous');
+			else if (e.keyCode==39)
+				$('#book').turn('next');
+
+	});
+
+</script>
 </body>
 </html>
