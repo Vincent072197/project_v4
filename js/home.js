@@ -1,39 +1,56 @@
 
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-// gsap.from('#page1 h1',{
-//     opacity:0,
-//     y:-200,
-//     delay:0.3,
-//     duration:1.5,
+gsap.from('#top h1',{
+    opacity:0,
+    y:-200,
+    delay:0.3,
+    duration:1.5,
 
 
-// })
+})
 
-// gsap.from('#page1 h3',{
-//     opacity:0,
-//     delay:1.5,
-//     duration:2.5,
-//     x:-200,
+gsap.from('#top h3',{
+    opacity:0,
+    delay:1,
+    duration:2.5,
+    x:-200,
     
 
-// })
+})
 
 
-// gsap.from('#page1 img',{
-//     y:200,
-//     opacity:0,
-//     delay:2,
-//     duration:1,
-// })
+gsap.from('#top img',{
+    opacity:0,
+    delay:1.5,
+    duration:1.5,
+    y:200,
+    
+
+})
+
+
+gsap.from('.part',{
+    scrollTrigger:{
+        trigger:".part",// 觸發動畫的元素
+        start:"top 100%",
+        end:"top 80% ",
+        scrub:1,
+        },
+        opacity:0,
+        y:200,      
+        stagger:0.5,  //每個字母的延遲
+        ease:"power2.out"
+
+})
 
 
 gsap.to('#page1 .hidden-text',{
     scrollTrigger:{
-        trigger:"#page1 ",// 觸發動畫的元素
-        start:"top 90%",
-        end:"top 30% ",
+        trigger:".area1",// 觸發動畫的元素
+        start:"top 100%",
+        end:"top 80% ",
         scrub:1,
         },
         opacity:1,
@@ -44,13 +61,13 @@ gsap.to('#page1 .hidden-text',{
 
 })
 
-gsap.from('#page2 .KAFKA',{
+gsap.from('#page2 ',{
     opacity:0,
     x:-200,
     delay:0.3,
     duration:1.5,
     scrollTrigger:{
-        trigger:"#page2 .KAFKA",
+        trigger:".area1",
         scroller:"body",
         start:"top 100%",
         end:"top 30% ",
@@ -61,8 +78,8 @@ gsap.from('#page2 .KAFKA',{
 })
 gsap.to('#page2 .hidden-text',{
     scrollTrigger:{
-        trigger:"#page2 ",// 觸發動畫的元素
-        start:"top 90%",
+        trigger:"#page1 ",// 觸發動畫的元素
+        start:"top 100%",
         end:"top 30% ",
         scrub:1,
         },
@@ -74,30 +91,14 @@ gsap.to('#page2 .hidden-text',{
 
 })
 
-// gsap.from('#page2 h2',{
-//     opacity:0,
-//     x:200,
-//     delay:1.5,
-//     duration:1.5,
-//     scrollTrigger:{
-//         trigger:"#page2 h2",
-//         scroller:"body",
-//         start:"top 100%",
-//         end:"top 20% ",
-//         scrub:1,
 
-
-//     }
-// })
-
-
-gsap.from('#page3 .temple',{
+gsap.from('#page3 ',{
     opacity:0,
     x:200,
     delay:0.3,
     duration:1.5,
     scrollTrigger:{
-        trigger:"#page3 .temple",
+        trigger:"#page2 ",
         scroller:"body",
         start:"top 100%",
         end:"top 30% ",
@@ -109,11 +110,8 @@ gsap.from('#page3 .temple',{
 
 gsap.from('#page3 h2',{
     opacity:0,
-    x:-200,
-    delay:1.5,
-    duration:1.5,
     scrollTrigger:{
-        trigger:"#page3 h2",
+        trigger:"#page2",
         scroller:"body",
         start:"top 100%",
         end:"top 30% ",
@@ -142,23 +140,23 @@ $(document).ready(function(){
 
 })
 // --------------------------------
-    // 初始化 GSAP 和 ScrollTrigger
-    gsap.registerPlugin(ScrollTrigger);
+    // // 初始化 GSAP 和 ScrollTrigger
+    // gsap.registerPlugin(ScrollTrigger);
 
-    // 設定水平滾動動畫
-    const horizontalSection = document.querySelector('.horizontal-section-wrapper');
-    gsap.to(horizontalSection, {
-      x: () => -(horizontalSection.scrollWidth - window.innerWidth), // 水平滾動範圍
-      ease: 'none',
-      scrollTrigger: {
-        trigger: horizontalSection,
-        start: 'top top',
-        end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`, // 滾動長度
-        pin: true, // 固定水平區域
-        scrub: true, // 平滑滾動
+    // // 設定水平滾動動畫
+    // const horizontalSection = document.querySelector('.horizontal-section-wrapper');
+    // gsap.to(horizontalSection, {
+    //   x: () => -(horizontalSection.scrollWidth - window.innerWidth), // 水平滾動範圍
+    //   ease: 'none',
+    //   scrollTrigger: {
+    //     trigger: horizontalSection,
+    //     start: 'top top',
+    //     end: () => `+=${horizontalSection.scrollWidth - window.innerWidth}`, // 滾動長度
+    //     pin: true, // 固定水平區域
+    //     scrub: true, // 平滑滾動
 
-      },
-    });
+    //   },
+    // });
 
 // -------------rank-----------------
 

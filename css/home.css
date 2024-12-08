@@ -1,5 +1,9 @@
 @import url("./reset.css");
 
+*{
+    box-sizing: border-box;
+}
+
 html {
     font-size: 62.5%;
     width: 100%;
@@ -16,12 +20,76 @@ body {
     background-color: #f9f7f3;
     overflow-x: hidden;
 }
+.sample-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 780px;
+    position: relative;
+    background-image: url(../img/Nooklit2.png);
+    background-color: #f9f7f3;
+
+  }
+
+  .sample-header-section {
+    position: relative;
+    width: 100vw;
+    height: 780px;
+  }
+  .sample-section-wrap {
+    position: relative;
+    background-color: white;
+  }
+  .sample-section {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 40px;
+  }
+  
+.introduce{
+    width: 95vw;
+    height: 500px;
+    background-color: #f9f7f3;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 20px;
+}
+.introduce .part{
+height: 70%;
+flex-grow: 1;
+flex-basis: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+.introduce .part i{
+    font-size: 7rem;
+    display: inline-flex;
+    flex-grow: 1;
+    margin-top: 80px;
+    }
+.introduce .part h1{
+font-size: 4rem;
+display: inline-flex;
+flex-grow: 1;
+}
+.introduce .part p{
+font-size: 2rem;
+display: inline-flex;
+flex-grow: 1;
+}
 
 .wrapper{
     max-width: 100%;
     margin-top: 100px;
     height: auto;
     margin: 0 auto;
+    /* padding-bottom: 30px; */
     /* border: 1px solid red; */
 }
 .nav{  
@@ -56,13 +124,13 @@ body {
     line-height: 60px;
 }
 #top{
-    width:100%;
+    /* width:100%;
     height: 780px;
     position: relative;
 
 
     background-image: url(../img/Nooklit2.png);
-    background-color: #f9f7f3;
+    background-color: #f9f7f3; */
  
 
     
@@ -93,9 +161,9 @@ margin-bottom: 50px;
     display: block;
     width: 500px;
     position: absolute;
-    bottom: -15%;
+    bottom: 0%;
     right: 0%;
-    z-index: 1000;
+
 
 
    }
@@ -115,17 +183,7 @@ border: 1px solid transparent;
 
 }
 
-.area1 .corner{
-    position: absolute;
-    top: 0;
-    left: 0;  
-    border-top: 10px solid black;
-    border-left: 10px solid black;
-    width: 150px;
-    height: 170px;
-    z-index: 1000;
 
-}
 
 .area1 h1{
 margin-left: 100px;
@@ -307,11 +365,12 @@ font-size: 10rem;
 
 .area2{
     width: 100%;
-    height: 240px;
+    height: 150px;
     /* background-color: lightcoral; */
     background-color: #f9f7f3;
     position: relative;
 border: 1px solid transparent;
+margin-bottom: 30px;
 
 
 }
@@ -338,7 +397,7 @@ text-align: center;
 }
 
 .rank{
-
+padding-bottom: 30px;
 
 }
 
@@ -369,11 +428,31 @@ margin-bottom: 30px;
 
 .rankType ul li:nth-child(1) button{
     border: 2px solid lightcoral;
+    cursor: pointer;
+    transition: 0.5s;
+   
+}
+.rankType ul li:nth-child(1) button:hover{
+    background-color: lightcoral;
+    transform: translateY(-10px);
 }
 .rankType ul li:nth-child(2) button{
     border: 2px solid lightblue;
-}.rankType ul li:nth-child(3) button{
+    cursor: pointer;
+    transition: 0.5s;
+}
+.rankType ul li:nth-child(2) button:hover{
+    background-color: lightblue;
+    transform: translateY(-10px);
+}
+.rankType ul li:nth-child(3) button{
     border: 2px solid lightgreen;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.rankType ul li:nth-child(3) button:hover{
+    background-color: lightgreen;
+    transform: translateY(-10px);
 }
 
 .rankboard{
@@ -430,7 +509,7 @@ text-align: left;
  height: 260px;
  display: inline-block;
  border: 3px solid rgb(141, 111, 36);
-padding: 20px;
+padding: 30px;
 box-sizing: border-box;
 margin-bottom: 10px;
 border-radius: 3px;
