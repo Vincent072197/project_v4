@@ -1,13 +1,4 @@
 
-//使用監聽 <select> 的 change 事件 選擇字型打小
-document.getElementById('fontSize').addEventListener('change',function(){
-let selectedFontSize = this.value; //get fontsize
-localStorage.setItem('selectedFontSize',selectedFontSize);//儲存到 localStorage
-
-
-})
-
-
 //選擇字體樣式
 
 document.getElementById('fontStyle').addEventListener('change',function(){
@@ -46,6 +37,8 @@ $('.save').click(function(){
     localStorage.setItem('NickName',NickName);
 
     alert("更新完成")
+
+window.location.reload()
 
 })
 

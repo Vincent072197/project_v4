@@ -397,4 +397,12 @@ $(document).on('click', 'a', function (event) {
 
 
   
+    // rwd-------
+
+    $('.fa-bars').click(function(){
+        $('.hamlist').toggleClass('active')
+
+    })
+
+
     

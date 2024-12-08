@@ -1,114 +1,82 @@
- //字體大小
- let selectedFontSize =localStorage.getItem('selectedFontSize');//設變數 抓localStorage的物件
- if(selectedFontSize){ //防止空值
-   let fontSizetarget={ 
-    //抓option的value屬性 套進需要的值
-     small:'54.5%',
-     middle:'62.5%',
-     large:'70.5%'
-   };
-   //抓html
-   document.documentElement.style.fontSize=fontSizetarget[selectedFontSize] || '62.5%';
+ 
+ $(document).ready(function () {
+    const pinnedBook = JSON.parse(localStorage.getItem('pinnedBook'));
+    const booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
+
+    if (pinnedBook && pinnedBook.id) {
+        // 根據編號從 booksArray 中抓取書籍內容
+        const bookDetails = booksArray.find(book => book.id === pinnedBook.id);
+        if (bookDetails) {
+            $('.title').text(bookDetails.title);
+            $('.title').css('color', bookDetails.color);
+            $('.title').css('font-family', bookDetails.family);
+            $('.publisher').text(bookDetails.subtitle);
+            $('.publisher').css('color', bookDetails.color);
+            $('.publisher').css('font-family', bookDetails.family);
+            $('.CoverImage').attr('src', bookDetails.photo);
+            $('.book-cover').css('background-color', bookDetails.bgcolor);
+            $('.book-cover-back').css('background-color', bookDetails.bgcolor);
+            $('.book-back').css('background-color', bookDetails.bgcolor);
+            $('.book-bone').css('background-color', bookDetails.bgcolor);
+            $('#cover-color').val(bookDetails.bgcolor)
+            $('#textcolor').val(bookDetails.color)
+            $('#bookname').val(bookDetails.title)
+            $('#Subtitle').val(bookDetails.subtitle)
+            $('#fontStyle').val(bookDetails.family)
+         
+           
+            // -----personal setting--------
+          
+            // $('#diary-textarea').val(bookDetails.text || '');
+        }
+      
+        
+    }
+    // ------------------------
+    $(document).ready(function () {
+        let booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
+        let pinnedBook = JSON.parse(localStorage.getItem('pinnedBook'));
+
+     
+        const bookId = pinnedBook && pinnedBook.id; // 替換為目標書籍 ID
+        const bookIndex = booksArray.findIndex(book => book.id === bookId);
+        
+        if (bookIndex !== -1) {
+            // 修改目標書籍的屬性
+           // -----------------bgcolor----------
+            let selectedCoverColor=localStorage.getItem('selectedCoverColor');
+            booksArray[bookIndex].bgcolor = selectedCoverColor || '#29303a'; // 新背景顏色
+        //--------fontcolor-------------------
+        let selectedTextColor =localStorage.getItem('selectedTextColor')|| '#92684F';
+
+        booksArray[bookIndex].color = selectedTextColor ;
+
+        //-------------------fontStyle------------------
+        let selectedFontStyle =localStorage.getItem('selectedFontStyle') || 'Lato';
+        booksArray[bookIndex].family = selectedFontStyle ;
+
+        //----------------image------------------
+
+        const savedImage = localStorage.getItem('coverImage') ||  '../img/002.JPG' ; // 從 localStorage 獲取圖片
+       booksArray[bookIndex].photo = savedImage ;
+        //------------title-------------
+        let bookTitleGet = localStorage.getItem('bookTitle') || 'New Title';
+        booksArray[bookIndex].title = bookTitleGet ;
+        //------------Subtitle--------------
+        let SubTitleGet = localStorage.getItem('bookSubtitle') || 'New Subtitle';
+        booksArray[bookIndex].subtitle = SubTitleGet ;
+
+       // 保存更新到 localStorage
+            localStorage.setItem('booksArray', JSON.stringify(booksArray));
+         
+        } else {
+            $('#StartNew').trigger('click');
    
-   //下面這邊是為了要讓select的選項鎖定在目前的value上
-   let fontSizeSelect = document.getElementById('fontSize');
-   if (fontSizeSelect) {
-     fontSizeSelect.value = selectedFontSize;
-   }
- }
-//fontstyle
- let selectedFontStyle =localStorage.getItem('selectedFontStyle');
- if(selectedFontStyle){
-   let FontStyletarget={
-     Hachi :"Hachi Maru Pop", 
-     Kablammo:"Kablammo",
-     lato:"Lato"
-   }
-   //抓body
-   document.body.style.fontFamily=FontStyletarget[selectedFontStyle] || 'sans-serif'
-
-   //-----改用Jquery寫法 要注意使用上跟JS的不同
-   let fontSizeSelect = $('#fontStyle')
-    if(fontSizeSelect){
-        fontSizeSelect.val(selectedFontStyle)
-    }
-}
- //textcolor
-let selectedTextColor =localStorage.getItem('selectedTextColor');
-if(selectedTextColor){
-    let textColorSelect ={
-        black:"#000000",
-        lightblue:"#9fbbe3",
-        gold:"#92684F",
-        Red:"#f03e2e"
-    }
-    let mainElements =document.querySelectorAll('.main');
-        for (let mainElement of mainElements ){
-            mainElement.style.color=textColorSelect[selectedTextColor] || '#92684F'
         }
-    let selectedcolor = $('#textcolor')
-    if(selectedcolor){
-        selectedcolor.val(selectedTextColor)
-    }
-    }
-
-
-
-
-//bgcolor
- let selectedCoverColor=localStorage.getItem('selectedCoverColor');
- if(selectedCoverColor){
-   let CoverColor={
-     Midnightblue:"#29303a",
-     lightblue:"#9fbbe3",
-     green:"#2b5232",
-     transparent:"transparent",
-   }
-   let elements =  document.querySelectorAll('.book-color');
-   if (CoverColor[selectedCoverColor]) {
-   for(let element of elements){
-    element.style.backgroundColor=CoverColor[selectedCoverColor] || '#29303A';
-   } // 加if else只是確保抓的到東西 不加也可以正常執行
-    }else {
-        console.warn(`選擇的顏色 "${selectedCoverColor}" 不在 CoverColor 中，請確認設定`);}
-
-
-        let selectCoverColor =$('#cover-color');
-        if(selectCoverColor){
-            selectCoverColor.val(selectedCoverColor);
-        }
- }
-
-//bookTitle
-
-$(document).ready(function () {
-    let bookTitleGet = localStorage.getItem('bookTitle');
-    if (bookTitleGet) {
-        $('.title').text(bookTitleGet) || '';
-    }
-
-    let keepBookTitle =$('#bookname');
-    if(keepBookTitle){
-        keepBookTitle.val(bookTitleGet)
-    }
-
+    });
+    
+    // ------------
 });
-
-//Subtitle
-
-$(document).ready(function () {
-    let SubTitleGet = localStorage.getItem('bookSubtitle');
-    if (SubTitleGet) {
-        $('.publisher').text(SubTitleGet) || 'write something';
-    }
-
-    let keepSubTitle =$('#Subtitle');
-    if(keepSubTitle){
-        keepSubTitle.val(SubTitleGet)
-    }
-});
-
-//backtext
 
 
 $(document).ready(function () {
@@ -117,9 +85,19 @@ $(document).ready(function () {
         $('.description').text(backtext) || '“There is no eternal winter in the world; every effort paves the way for spring.”';
     }
 
-    let keepSubTitle =$('#Subtitle');
+    let fontStyle = localStorage.getItem('selectedFontStyle');
+    if (fontStyle) {
+        $('.description').css('font-family',fontStyle) || 'Lato';
+    }
+
+    let fontcolor = localStorage.getItem('selectedTextColor');
+    if (fontcolor) {
+        $('.description').css('color',fontcolor) || '#92684F';
+    }
+
+    let keepSubTitle =$('#backtext');
     if(keepSubTitle){
-        keepSubTitle.val(SubTitleGet)
+        keepSubTitle.val(backtext)
     }
 });
 
@@ -138,152 +116,113 @@ $(document).ready(function () {
 });
 
 
-
-//image
-document.addEventListener('DOMContentLoaded', function () {
-    const savedImage = localStorage.getItem('coverImage'); // 從 localStorage 獲取圖片
-    const coverImage = document.querySelector('.CoverImage'); // 選取封面圖片元素
-
-    if (savedImage) {
-        coverImage.src = savedImage; // 設置圖片來源
-        coverImage.alt = '封面圖片'; // 設置替代文字
-    } else {
-        coverImage.src = '../img/002.JPG';
-        coverImage.alt = '暫無封面圖片';
-    }
-});
-
 // -------------------------------------------------
 
-$('#bookSave').click(function(){
-    let NewTitle = $('.title').text();
-    let Newphoto = $('.CoverImage').attr('src');
-    let NewSubTitle = $('.publisher').text();
-    let TextColor =$('.title').css('color');
-    let fontFamily =$('.title').css('font-family');
-    let bg = $('.book-cover').css('background-color');
-    let diraytext =$('#diary-textarea').val();
-    let Bookid =$('#bookid').text()
+$('#bookSave').click(function () {
+    const booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
+    const pinnedBook = JSON.parse(localStorage.getItem('pinnedBook'));
 
-    let booksArray = JSON.parse(localStorage.getItem('booksArray')) || []; // 取得現有資料，若無則初始化為空陣列
-    //防止重複儲存，some() 是 JavaScript 陣列方法，用來檢查陣列中的某些元素是否滿足指定條件。
-    let isDuplicate = booksArray.some(item => item.Bookid === Bookid);
-    if (isDuplicate) {
-        alert('此書籍已經存在，不需要重複儲存！');
-        return; // 若重複則中止儲存
+    const newDiaryEntry = $('#diary-textarea').val();
+
+    if (!newDiaryEntry) {
+        alert('尚未撰寫任何內容！');
+        return;
     }
+
+    if (pinnedBook && pinnedBook.id) {
+        const bookIndex = booksArray.findIndex(book => book.id === pinnedBook.id);
+        if (bookIndex !== -1) {
+            const existingBook = booksArray[bookIndex];
+
+            // 確保 pages 是陣列
+            if (!Array.isArray(existingBook.pages)) {
+                existingBook.pages = [];
+            }
+
+            // 新增日記內容
+            existingBook.pages.push(newDiaryEntry);
+
+            // 更新書籍
+            booksArray[bookIndex] = {
+                ...existingBook,
+            };
+
+            // 更新釘選的書籍
+            localStorage.setItem('pinnedBook', JSON.stringify(existingBook));
+        }
+    } else {
+        booksArray.push({
+            id: `book-${booksArray.length}-${Date.now()}`,
+            // title: $('.title').text(),
+            // photo: $('.CoverImage').attr('src'),
+            // subtitle: $('.publisher').text(),
+            // color: $('.title').css('color'),
+            // family: $('.title').css('font-family'),
+            // bgcolor: $('.book-cover').css('background-color'),
+            pages: [newDiaryEntry], // 初始化 pages 為陣列
+        });
+    }
+
+    // 儲存更新後的 booksArray
+    localStorage.setItem('booksArray', JSON.stringify(booksArray));
+    alert('日記內容已儲存到新頁！');
+});
+
+
+// --------
+$('#StartNew').click(function () {
+    // 預設的書籍樣式和內容
+    const defaultBook = {
+        id: `book-${Date.now()}`, // 使用當前時間戳生成唯一 ID
+        title: 'New Title', // 預設標題
+        subtitle: 'New Subtitle', // 預設副標題
+        photo: '../img/002.JPG', // 預設封面圖片
+        bgcolor: '#29303a', // 預設背景顏色
+        color: '#92684F', // 預設文字顏色
+        family: 'Lato', // 預設字體
+        pages: [], // 初始化為空的頁面內容
+    };
+
+    // 從 localStorage 獲取書籍清單，或初始化為空陣列
+    const booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
     
+    // 將新書添加到書籍清單
+    booksArray.push(defaultBook);
 
-    // 將新書籍資訊加入陣列
-    booksArray.push({
-        title: NewTitle,
-        photo: Newphoto,
-        subtitle: NewSubTitle,
-        color:TextColor,
-        family:fontFamily,
-        bgcolor: bg,
-        text:diraytext,
-        Bookid:Bookid,
-    });
-
-    // 儲存陣列到 localStorage
+    // 更新書籍清單到 localStorage
     localStorage.setItem('booksArray', JSON.stringify(booksArray));
 
-    console.log('儲存成功：', booksArray);
-})
+    // 將新書設置為當前釘選的書籍
+    localStorage.setItem('pinnedBook', JSON.stringify(defaultBook));
 
+    // 提示用戶
+    alert(`新書「${defaultBook.title}」已建立！請至個人設定修改樣式與內容。`);
 
-// ---------------------------------
+    // 更新視圖（顯示新書的預設內容）
+    $('.title').text(defaultBook.title);
+    $('.title').css('color', defaultBook.color);
+    $('.title').css('font-family', defaultBook.family);
+    $('.publisher').text(defaultBook.subtitle);
+    $('.publisher').css('color', defaultBook.color);
+    $('.publisher').css('font-family', defaultBook.family);
+    $('.CoverImage').attr('src', defaultBook.photo);
+    $('.book-cover').css('background-color', defaultBook.bgcolor);
+    $('.book-cover-back').css('background-color', defaultBook.bgcolor);
+    $('.book-back').css('background-color', defaultBook.bgcolor);
+    $('.book-bone').css('background-color', defaultBook.bgcolor);
+    $('#diary-textarea').val(''); // 清空日記輸入框
+    $('#cover-color').val(defaultBook.bgcolor)
+    $('#textcolor').val(defaultBook.color)
+    $('#bookname').val(defaultBook.title)
+    $('#Subtitle').val(defaultBook.subtitle)
+    $('#fontStyle').val(defaultBook.family)
 
-//這邊是更精簡的寫法，自己練習的版本在下面
+    localStorage.setItem('selectedCoverColor', defaultBook.bgcolor)
+    // localStorage.getItem('bookTitle');
+    localStorage.setItem('bookTitle', defaultBook.title)
+    localStorage.setItem('bookSubtitle', defaultBook.subtitle)
+    localStorage.setItem('selectedTextColor', defaultBook.color)
+    localStorage.setItem('selectedFontStyle', defaultBook.family)
+    localStorage.setItem('coverImage', defaultBook.photo)
 
-// document.addEventListener('DOMContentLoaded', function (){
-//     let savedBookId = localStorage.getItem('currentBookId') || '0';
-//     $('#bookid').text(savedBookId);
-
-// })
-
-// let currentBookId = parseInt($('#bookid').text(), 10); // 確保為整數
-
-// $('#StartNew').click(function () {
-//     // 增加書本 ID 並更新顯示
-//     currentBookId++;
-//     $('#bookid').text(currentBookId);
-
-//     // 將新書本 ID 儲存到 localStorage
-//     localStorage.setItem('currentBookId', currentBookId);
-
-//     // 刪除書本相關的 localStorage 項目
-//     const keysToRemove = [
-//         'bookTitle',
-//         'NickName',
-//         'selectedTextColor',
-//         'selectedCoverColor',
-//         'bookSubtitle',
-//         'coverImage',
-//     ];
-//     keysToRemove.forEach((key) => localStorage.removeItem(key));
-
-//     // 清空頁面元素
-//     resetBookUI();
-// });
-
-// // 重置書本的 UI
-// function resetBookUI() {
-//     // 預設值
-//     const defaultTitle = 'Welcome';
-//     const defaultSubtitle = 'Write something';
-//     const defaultTextColor = 'black';
-//     const defaultFontFamily = 'Arial';
-//     const defaultBgColor = '#92684A';
-//     const defaultDiaryText = '';
-//     const defaultImageSrc = '';
-
-//     // 重置文字與樣式
-//     $('.title').text(defaultTitle);
-//     $('.publisher').text(defaultSubtitle);
-//     $('.main').css({
-//         color: defaultTextColor,
-//         'font-family': defaultFontFamily,
-//     });
-//     $('.book-cover').css('background-color', defaultBgColor);
-//     $('#diary-textarea').val(defaultDiaryText);
-
-//     // 重置圖片
-//     $('.CoverImage').attr('src', defaultImageSrc);
-// }
-
-
-
-
-//----------------------------
-
-document.addEventListener('DOMContentLoaded', function (){
-    let savedBookId = localStorage.getItem('currentBookId') || '0';
-    $('#bookid').text(savedBookId);
-
-})
-
-//span 或 div，使用 text() 來取得和更新內容；如果是輸入欄位，則用 val()
-$('#StartNew').click(function(){
-    let currentBookId = parseInt($('#bookid').text()) 
-    currentBookId++ ;
-    localStorage.setItem('currentBookId',currentBookId)
-
-localStorage.removeItem('bookTitle'); // 刪除 'bookTitle'
-localStorage.removeItem('NickName');  // 刪除 'NickName'
-localStorage.removeItem('selectedTextColor');
-localStorage.removeItem('selectedCoverColor');
-localStorage.removeItem('bookSubtitle');
-localStorage.removeItem('coverImage');
-
-location.reload() //重整網頁跳回預設
-
-})
-
-
-
-
-
-
-
+});
