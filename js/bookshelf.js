@@ -25,19 +25,50 @@ function initializeBookshelf() {
                     data-family="${book.family}">
                     
                     <div class="bookDisplay" style="color: ${book.color}; font-family: ${book.family};">
-                        <h1>${book.title}${isPinned ? ' (釘選)' : ''}</h1>
+                        <h1>${book.title}</h1>
                         <div class="Display-photo-wrapper">
                             <img src="${book.photo}" alt="${book.title}">
                         </div>
                         <div class="displaySubtitle" style="color:${book.color}; font-family:${book.family}">
                             ${book.subtitle}
                         </div>
-                        <div class="pageCount">頁數: ${numberOfPages}</div>
+                      
                     </div>
                     <button class="pinBook">${isPinned ? '已釘選' : '釘選'}</button>
+                     <span id="delete"> <i class="fa-solid fa-xmark"></i></span>
                 </li>
             `);
         });
+        $('.bookshelf .layer').on('click', '#delete', function () {
+            const parentLi = $(this).closest('li');
+            const bookId = parentLi.data('id');
+            let booksArray = JSON.parse(localStorage.getItem('booksArray')) || [];
+            const pinnedBook = JSON.parse(localStorage.getItem('pinnedBook'));
+
+                // 彈出確認視窗
+            const confirmDelete = confirm('確定要刪除此書籍嗎？');
+            if (!confirmDelete) {
+            return; // 使用者取消刪除
+                }
+
+
+            // 移除被刪除的書籍
+            booksArray = booksArray.filter(book => book.id !== bookId);
+            localStorage.setItem('booksArray', JSON.stringify(booksArray));
+
+            // 如果刪除的是釘選的書，釘選下一本書（如果有）
+            if (pinnedBook && pinnedBook.id === bookId && booksArray.length > 0) {
+                const nextBook = booksArray[0]; // 預設釘選第一本書
+                if(nextBook){
+                    $(`li[data-id="${nextBook.id}"] .pinBook`).trigger("click")
+                }
+              
+               
+            } 
+            parentLi.remove();
+            window.location.reload();
+        });
+   
 
         // 將更新的陣列儲存回 localStorage
         localStorage.setItem('booksArray', JSON.stringify(booksArray));
@@ -70,25 +101,37 @@ function bindBookClickEvents() {
                         <img src="${bookDetails.photo}" alt="${bookDetails.title}">
                     </div>
                     <div class="SubTitle" style="color:${bookDetails.color}; font-family:${bookDetails.family}">${bookDetails.subtitle}</div>
-                </div>
+                  </div>
             </div>
         `);
 
         // 動態添加頁面
         pagesContent.forEach((pageContent, index) => {
             $('#dynamic-books').append(`
-                <div class="page" id="page-${index + 1}">
+                <div class="page ${index % 2 === 0 ? 'odd' : 'even'}" id="page-${index + 1}">
                     <p>${pageContent}</p>
                 </div>
             `);
+         
         });
+        const pagesCount = pagesContent.length;
+        if (pagesCount % 2 === 1) {
+            $('#dynamic-books').append(`
+                <div class="page blank-page even" style="font-size:3rem">
+                    <!-- 空白頁 -->
+                </div>
+            `);
+        }
+    
+    
+ 
 
         // 初始化翻頁效果
         $('#dynamic-books').turn({
             acceleration: true,
             pages: numberOfPages,
-            width: 700,
-            height: 500,
+            width: 800,
+            height: 550,
             elevation: 50,
             gradients: true,
             autoCenter: true,
@@ -102,13 +145,13 @@ function bindBookClickEvents() {
             }
         });
 
-        bookFrame.css('display', 'block');
+        $('.lightbox').css('display', 'block');
     });
 
     // 關閉書籍詳情視圖
     $('.close').click(function () {
-        if ($('.bookframe').css('display') === 'block') {
-            $('.bookframe').css('display', 'none');
+        if ($('.lightbox').css('display') === 'block') {
+            $('.lightbox').css('display', 'none');
             window.location.reload();
         }
     });

@@ -1,5 +1,8 @@
 @import url("../css/reset.css");
 
+*{
+    box-sizing: border-box;
+}
 html {
     font-size: 62.5%;
 }
@@ -87,8 +90,7 @@ nav ul li a{
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  grid-area: left_nav ;
-  width: 150px;
+  width: 18%;
 }
 
 .head_shot {
@@ -194,6 +196,7 @@ nav ul li a{
     font-size:1.8rem; text-align:center;
     /* text-shadow:0 2px 0 rgba(30,35,45,1); */
     box-shadow:inset 3px 0 10px rgba(0,0,0,0.1);
+    box-shadow: 6px 5px 5px rgba(0, 0, 0, 0.4);
     z-index:10;
     -webkit-transform-style:preserve-3d;
     -moz-transform-style:preserve-3d;
@@ -322,7 +325,7 @@ nav ul li a{
     transform:translate3d(0,0,24px);
 }
 .page{
-    height:95%  ;
+    height:100%  ;
     padding: 10px;
 }
 .book-page h3{
@@ -357,14 +360,19 @@ nav ul li a{
     z-index:8;
 }
 .book-back .description{
-    font-size:1.6rem;
-    line-height:20px;
+    font-size:2.3rem;
+    line-height:30px;
     margin-top:50px;
     padding:10px 20px 10px 30px;
     background:rgba(255,255,255,0.1);
+    
+    overflow-wrap: break-word;/*讓文字自動斷行*/
+    text-indent: 40px;
+
 }
 .book-back p{
     padding:5px 0;
+  
 }
 .isbn{
     position:absolute;
@@ -551,13 +559,18 @@ nav ul li a{
 /* ------------ */
 
 
-table,tr,td{
-    text-align: center;
-    border: 1px solid #d03333;
-    border-collapse: collapse;
-    
+#diary-textarea{
+border: 0;
+resize: none;
+height: 100%;
+width: 100%;
+font-size: 2rem;
+padding: 15px;
+border-radius: 5px;
+
 }
-td{
-    width: 50px;
-    height: 25px;
+
+#diary-textarea:focus{
+    outline: none;
+
 }

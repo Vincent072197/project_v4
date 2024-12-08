@@ -82,7 +82,7 @@
 $(document).ready(function () {
     let backtext = localStorage.getItem('backtextarea');
     if (backtext) {
-        $('.description').text(backtext) || '“There is no eternal winter in the world; every effort paves the way for spring.”';
+        $('.description p').text(backtext) || '“There is no eternal winter in the world; every effort paves the way for spring.”';
     }
 
     let fontStyle = localStorage.getItem('selectedFontStyle');
