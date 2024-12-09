@@ -387,7 +387,7 @@ function kickBall(target){
 
 // 滾動式跳頁
 
-$(document).on('click', 'a', function (event) {
+$(document).on('click', '.left_selector a', function (event) {
     event.preventDefault();
     let target = $(this).attr("href");
     $('html, body').animate({
