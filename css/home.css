@@ -93,7 +93,7 @@ flex-grow: 1;
 }
 .nav{  
     position: fixed;
-    top: 100px;
+    top: 50px;
     right: 0;
     background-color: rgba(77, 76, 76, 0.9);
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.5);
