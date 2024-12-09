@@ -482,3 +482,135 @@ width: 55%;
 .checkout button:hover {
     background-color: #b95555; 
 }
+
+@media (width<=820px){
+    .wrapper{
+        width: 85%;
+    }
+    .second ul{
+        column-gap: 20px;
+    }
+    .second ul li{
+        padding: 0 7px;
+    }
+    .second ul li input[type="radio"]{
+        margin-right: 6px;
+    }
+    .checkout{
+        width: 85%;
+    }
+    .order_contact_detail input[type="text"], .order_contact_detail input[type="number"]{
+        width: 25%;
+    }
+    .address_section select{
+        width: 15%;
+        font-size: 1.2rem;
+    }
+    .address_section{
+        gap: 5px;
+    }
+    input[type="number"].areanumber {
+        width: 9%;
+    }
+    .reciept_opt select{
+        width: 40%;
+    }
+    .header_content{
+        width: 85%;
+    }
+    .progress ul{
+        gap: 80px;
+    }
+
+
+}
+
+@media (width<=430px){
+    .main_detail .promotion{
+        font-size: 1.2rem;
+    }
+    .main_detail .theme{
+        font-size: 1.2rem;
+    }
+    .checkout button{
+        width: 90px;
+    }
+    .checkout_Btn_left{
+        font-size: 2rem;
+    }
+    .header{
+
+    }
+
+    .header img{
+    
+    }
+    .progress_bar ul{
+        display: none;
+    }
+    .progress ul{
+        flex-direction: column;
+        gap: 13px;
+        margin-top: 10px;
+    }
+    .progress ul li:nth-child(1)::before{
+content: " 1.";
+color: #cc6666;
+    }
+    .progress ul li:nth-child(2)::before{
+        content: " 2.";
+        color: #cc6666 rgba(0, 0, 0, 0.1);
+            }
+    .progress ul li:nth-child(3)::before{
+        content: "3.";
+         color: #cc6666 rgba(0, 0, 0, 0.1);
+                    }        
+    .header_content{
+        display: flex;
+        column-gap: 0px;
+    }
+
+
+    .checkout{
+        height: 80px;
+    }
+    .order_contact_detail input[type="text"], .order_contact_detail input[type="number"]{
+            width: 33%;
+    }
+    input[type="number"].areanumber{
+        width: 24%;
+    }
+    .address_section{
+        flex-direction: column;
+        align-items: flex-start;
+
+    }
+    .address_section select{
+        width: 30%;
+    }
+    .order_contact_detail input[type="text"]{
+        width: 76%;
+    }
+    .second ul{
+        flex-direction: row;
+        flex-wrap: wrap;
+        row-gap: 20px;
+    }
+    .second ul li{
+        width: 40%;
+    }
+    .reciept_opt select{
+        width: 80%;
+    }
+    .second ul:first-child{
+        width: 90%;
+        flex-direction: column;
+   
+        row-gap: 20px;
+    }
+    .second ul:first-child li{
+        width: 85%;
+   
+        row-gap: 20px;
+    }
+}
