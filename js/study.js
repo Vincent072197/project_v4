@@ -166,6 +166,7 @@ $('#bookSave').click(function () {
     // 儲存更新後的 booksArray
     localStorage.setItem('booksArray', JSON.stringify(booksArray));
     alert('日記內容已儲存到新頁！');
+    window.location.reload()
 });
 
 
